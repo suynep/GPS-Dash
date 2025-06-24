@@ -1,5 +1,5 @@
 # About
-This is an (ongoing) project, which aims to provide a frontend to the EDA tasks involved in our project.  
+This is an (ongoing) project, which aims to provide a frontend to the EDA tasks involved in ![this data analysis](https://github.com/suynep/ME-GPS-EDA).  
 
 > Built w/ `streamlit`, maintained with ♥
 
