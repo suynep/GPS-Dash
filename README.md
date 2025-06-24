@@ -5,7 +5,7 @@ This is an (ongoing) project, which aims to provide a frontend to the EDA tasks 
 
 ## Running
 
- ``bash
+```bash
 python3 -m virtualenv .venv
 source ./.venv
 pip3 install -r requirements.txt
