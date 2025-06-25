@@ -159,4 +159,4 @@ if st.button("Reset Dashboard"):
     for key in ['data', 'trips']:
         if key in st.session_state:
             del st.session_state[key]
-    st.experimental_rerun()
+    st.rerun()
