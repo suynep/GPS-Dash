@@ -1,6 +1,21 @@
 import streamlit as st
 import pydeck as pdk
 import pandas as pd
+import plotly.graph_objects as go
+import plotly.express as px
+
+
+def plot_metric(label, value, suffix=""):
+    fig = go.Figure(
+        go.Indicator(
+            mode="number",
+            value=value,
+            number={"suffix": suffix, "font": {"size": 28}},
+            title={"text": label, "font": {"size": 20}},
+        )
+    )
+    fig.update_layout(height=120, margin=dict(t=20, b=0))
+    st.plotly_chart(fig, use_container_width=True)
 
 
 def plot_trip_from_index(trips, index=0):
@@ -52,6 +67,15 @@ for i in range(len(trip_ids)):
         filtered_df = trips[i]
         st.write(f"Map data for Trip_ID: {selected_trip}")
         
+        top_left_column, top_right_column = st.columns(2)
+        with top_left_column:
+            col1, col2 = st.columns(2)
+            with col1:
+                plot_metric("Avg. Speed", filtered_df["Speed"].mean(), " km/h")
+                plot_metric("Avg. Altitude", filtered_df["Altitude"].mean(), " m")
+            with col2:
+                plot_metric("Avg. Angle", filtered_df["Angle"].mean(), "°")
+                plot_metric("Avg. Satellites", int(filtered_df["Satellites"].mean()), "")
         # 3D plotting Begins
 
         st.markdown("### Vehicle State Legend")

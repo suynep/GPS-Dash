@@ -114,7 +114,7 @@ if df is not None:
             plot_metric("Avg. Altitude", df['Altitude'].mean(), " m")
         with col2:
             plot_metric("Avg. Angle", df['Angle'].mean(), "°")
-            plot_metric("Avg. Satellites", df['Satellites'].mean(), "")
+            plot_metric("Avg. Satellites", int(df['Satellites'].mean()), "")
 
     # --- Bar Chart: Full Width ---
     st.markdown("### Total Distance Moved by Vehicle State")
