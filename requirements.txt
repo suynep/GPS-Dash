@@ -3,3 +3,4 @@ geopy
 pandas
 matplotlib
 streamlit
+plotly
