@@ -5,6 +5,16 @@ import plotly.graph_objects as go
 import plotly.express as px
 
 
+def plot_bottom_left_line(df):
+    fig = px.line(
+        df.sort_values("Data Actual Time"),
+        x="Data Actual Time",
+        y="Speed",
+        title="Speed Over Time",
+        labels={"Speed": "Speed (km/h)"}
+    )
+    st.plotly_chart(fig, use_container_width=True)
+
 def plot_metric(label, value, suffix="", key_suffix=""):
     fig = go.Figure(
         go.Indicator(
@@ -213,6 +223,8 @@ for i in range(len(trip_ids)):
         with col2:
             plot_metric("Avg. Angle", selected_df["Angle"].mean(), "°", key_suffix=f"{selected_trip}_path")
             plot_metric("Avg. Satellites", int(selected_df["Satellites"].mean()), "", key_suffix=f"{selected_trip}_path")
+        
+        plot_bottom_left_line(selected_df)
         
  
         
